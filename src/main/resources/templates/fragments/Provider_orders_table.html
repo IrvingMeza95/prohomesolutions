@@ -1,0 +1,77 @@
+<div th:fragment="provider_orders_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Custimer</th>
+        <th scope="col">Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Status</th>
+        <th th:if="${session.userSession.id == id}" scope="col">Chat</th>
+        <th th:if="${session.userSession.id == id}" scope="col">Save</th>
+      </tr>
+    </thead>
+    <tbody th:each="job : ${jobs}">
+      <form th:action="@{/job/change-status/__${job.id}__}" method="get">
+        <tr>
+          <td>
+            <span th:text="${job.date}"></span>
+          </td>
+          <td>
+            <a
+              th:href="@{/customer/profile/__${job.cust.id}__}"
+              th:text="${job.cust.name}"
+            ></a>
+          </td>
+          <td>
+            <span th:text="${job.prov.providerType.job}"></span>
+          </td>
+          <td>
+            <span th:text="${'$' + job.totalPrice}"></span>
+          </td>
+          <td>
+            <span
+              th:if="${session.userSession.id != id}"
+              th:text="${job.jobStatus.tag}"
+            ></span>
+            <select
+              th:if="${session.userSession.id == id}"
+              name="jobStatus"
+              class="form-select w-75"
+              aria-label="Default select example"
+            >
+              <option
+                th:value="${job.jobStatus.name}"
+                th:text="${job.jobStatus.tag}"
+                selected
+              ></option>
+              <option
+                th:each="status : ${jobStatus}"
+                th:value="${status.name}"
+                th:text="${status.tag}"
+              />
+            </select>
+          </td>
+          <td th:if="${session.userSession.id == id}">
+            <a th:href="@{/job/chat-messages/__${job.id}__}" class="btn">
+              <img
+                title="Messages"
+                style="width: 35px; height: 30px"
+                src="/img/Icono de chat.png"
+              />
+            </a>
+          </td>
+          <td th:if="${session.userSession.id == id}">
+            <button type="submit" class="border border-0">
+              <img
+                title="Save"
+                src="/img/Icono de guardaer.png"
+                style="width: 25px; height: 25px"
+              />
+            </button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>
+</div>

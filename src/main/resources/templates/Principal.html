@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+  <head th:replace="fragments/Head :: head"></head>
+  <body>
+    <nav th:replace="fragments/Navbar :: nav_bar"></nav>
+
+    <div th:replace="fragments/Services_carousel :: services_carousel"></div>
+
+    <div th:replace="fragments/Options_toggle :: options_toggle"></div>
+
+    <div th:replace="fragments/Modals :: modals"></div>
+
+    <div class="container marketing">
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">
+            Gives local work!!!.
+            <span class="text-body-secondary">Help your community.</span>
+          </h2>
+          <p class="lead">
+            See how your friend, neighbor and their family prosper at work.
+            Thanks to a job opportunity.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img th:src="@{${'/img/comunidad.jpg'}}" width="300" height="300" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">
+            Reliable providers, supported by the app.
+            <span class="text-body-secondary">See for yourself.</span>
+          </h2>
+          <p class="lead">
+            We have a rating system and comments made by users, allowing us to
+            have a reputation for each provider.
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img
+            th:src="@{${'/img/contactar.jpg'}}"
+            class="img-2"
+            width="300"
+            height="300"
+          />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">
+            We help you.
+            <span class="text-body-secondary">Contact the best provider.</span>
+          </h2>
+          <p class="lead">
+            Check all profiles, look at user ratings. Help your favorite
+            provider get more job offers.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img
+            th:src="@{${'/img/calificacion cliente.jpg'}}"
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            width="300"
+            height="300"
+          />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <!-- /END THE FEATURETTES -->
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

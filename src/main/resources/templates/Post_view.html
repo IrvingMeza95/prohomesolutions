@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head th:replace="fragments/Head :: head"></head>
+  <body>
+    <nav th:replace="fragments/Navbar :: nav_bar"></nav>
+
+    <div th:replace="fragments/Options_toggle :: options_toggle"></div>
+
+    <div th:replace="fragments/Modals :: modals"></div>
+
+    <main class="d-flex justify-content-center align-items-center gap-2">
+      <div class="w-50 gap-2">
+        <div class="col">
+          <div class="card border border-black">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center p-2 gap-2">
+                <img
+                  th:if="${post.provider.profilePicture != null}"
+                  th:src="@{/file/image/__${post.provider.profilePicture.id}__}"
+                  class="rounded-5"
+                  style="width: 40px; height: 40px"
+                />
+                <img
+                  th:if="${post.provider.profilePicture == null}"
+                  src="/img/PP vacia.png"
+                  class="rounded-5"
+                  style="width: 40px; height: 40px"
+                />
+                <a
+                  th:href="@{/provider/profile/__${post.provider.id}__}"
+                  th:text="${post.provider.name}"
+                ></a>
+              </div>
+              <div th:if="${session.userSession.role.name == 'ADMIN'}">
+                <a
+                  th:href="@{/post/change-visiblity/__${post.id}__}"
+                  th:if="${post.visible == true}"
+                  class="p-2"
+                  ><img
+                    style="width: 25px; height: 25px"
+                    src="/img/Desbloquedo.png"
+                /></a>
+                <a
+                  th:href="@{/post/change-visiblity/__${post.id}__}"
+                  th:if="${post.visible == false}"
+                  class="p-2"
+                  ><img
+                    style="width: 25px; height: 25px"
+                    src="/img/Bloqueado.png"
+                /></a>
+              </div>
+            </div>
+            <img
+              th:src="@{/file/image/__${post.image.id}__}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body text-bg-light p-3">
+              <h5
+                th:text="'Work of ' + ${post.provider.providerType.tag} + ' for a price of $' + ${post.provider.price} + ' ' + ${post.provider.feeTypes.tag} + '.'"
+                class="card-title"
+              ></h5>
+              <p th:text="${post.description}" class="card-text"></p>
+
+              <div class="d-flex justify-content-evenly align-items-center">
+                <div th:if="${session.userSession.userType.name == 'CUSTOMER'}">
+                  <a
+                    th:href="@{/customer/like-post/__${post.id}__}"
+                    th:if="${fav == false}"
+                  >
+                    <img
+                      src="/img/Corazon vacio.png"
+                      style="width: 25px; height: 25px"
+                    />
+                  </a>
+                  <a
+                    th:href="@{/customer/like-post/__${post.id}__}"
+                    th:if="${fav == true}"
+                  >
+                    <img
+                      src="/img/Corazon lleno.png"
+                      style="width: 25px; height: 25px"
+                    />
+                  </a>
+                </div>
+                <p class="card-text text-end">
+                  <small
+                    th:text="'Published on ' + ${post.postDate}"
+                    class="text-body-secondary"
+                  ></small>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div th:if="${session.userSession.userType.name == 'CUSTOMER'}">
+            <form
+              th:action="@{/post/add-comment/__${post.id}__}"
+              method="post"
+              class="d-flex justify-content-evenly align-items-center mt-2"
+            >
+              <input
+                name="comment"
+                type="text"
+                class="rounded-3 w-75"
+                placeholder="Type here..."
+              />
+              <button type="submit" class="btn btn-primary">Comment</button>
+            </form>
+          </div>
+
+          <div>
+            <div th:replace="fragments/Post_comment_box :: post_comment_box"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

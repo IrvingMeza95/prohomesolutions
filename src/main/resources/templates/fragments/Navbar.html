@@ -1,0 +1,130 @@
+<nav th:fragment="nav_bar" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a
+      th:if="${session.userSession != null}"
+      class="navbar-brand"
+      href="/principal"
+    >
+      <img
+        src="/img/LOGO_PROHOMESOLUTIONS_NAV_1.png"
+        style="width: 90px; height: 30px"
+        class="card-img-top"
+      />
+    </a>
+    <a th:if="${session.userSession == null}" class="navbar-brand" href="/">
+      <img
+        src="/img/LOGO_PROHOMESOLUTIONS_NAV_1.png"
+        style="width: 90px; height: 30px"
+        class="card-img-top"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <a
+            th:if="${session.userSession != null}"
+            class="nav-link text-light active"
+            aria-current="page"
+            href="/principal"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            th:if="${session.userSession == null}"
+            class="nav-link text-light active"
+            aria-current="page"
+            href="/"
+            >Home</a
+          >
+        </li>
+        <li th:if="${session.userSession != null}" class="nav-item">
+          <a class="nav-link" href="/post/portal-post/DATE_DESC"
+            >Providers posts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact-us"
+            >Contact us</a
+          >
+        </li>
+      </ul>
+
+      <div th:if="${session.userSession != null}" class="dropdown">
+        <a class="btn dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Notifications
+        </a>
+        <div class="dropdown-menu dropdown-menu-end">
+          <div th:replace="fragments/Notification_list :: notification_list"></div>
+        </div>
+      </div>
+
+      <div th:if="${session.userSession != null}" class="d-flex">
+        <div class="dropdown text-white">
+          <a
+            class="btn dropdown-toggle rounded-5"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              th:if="${session.userSession.profilePicture != null}"
+              style="width: 40px; height: 40px"
+              th:src="@{/file/profile-picture/__${session.userSession.id}__}"
+              class="dropdown-toggle rounded-5"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            />
+            <img
+              th:if="${session.userSession.profilePicture == null}"
+              style="width: 40px; height: 40px"
+              src="/img/PP vacia.png"
+              class="dropdown-toggle rounded-5"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li th:if="${session.userSession.role.name == 'ADMIN'}">
+              <a class="dropdown-item" href="/admin/dashboard"
+                >Admin dashboard</a
+              >
+            </li>
+            <li th:if="${session.userSession.userType.name == 'CUSTOMER'}">
+              <a class="dropdown-item " th:href="@{/customer/profile/__${session.userSession.id}__}"
+                >Profile</a
+              >
+            </li>
+            <li th:if="${session.userSession.userType.name == 'PROVIDER'}">
+              <a class="dropdown-item " th:href="@{/provider/profile/__${session.userSession.id}__}"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div th:if="${session.userSession == null}" class="d-flex p-3">
+        <a href="/app/v1/login" class="btn btn-outline-primary me-2"> Login </a>
+        <a href="/app/v1/sign-up" class="btn btn-warning">Sign-up</a>
+      </div>
+    </div>
+  </div>
+</nav>

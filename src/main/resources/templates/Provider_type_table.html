@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+  <head>
+    <title>ProHomeSolutions</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Quicksand", sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="/css/tableServicios.css" />
+  </head>
+  <body>
+    <nav th:replace="fragments/Navbar :: nav_bar"></nav>
+
+    <div th:replace="fragments/Services_carousel :: services_carousel"></div>
+
+    <br />
+    <br />
+
+    <div class="container">
+      <div class="div-left">
+        <h2>Filter</h2>
+        <p>Search by name</p>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre del proveedor"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Search
+          </button>
+        </div>
+        <p>Search by price range</p>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ej:400"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ej:300"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Search
+          </button>
+        </div>
+        <p>Search by rating range</p>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ej:5"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ej:4"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+           Search
+          </button>
+        </div>
+      </div>
+      <div class="div-right">
+        <div>
+          <center>
+            <h1 th:text="'List of ' + ${type.job}  + ' network technicians'"></h1>
+          </center>
+        </div>
+        <table class="table">
+          <thead id="head-table">
+            <tr>
+              <th scope="col">Full name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Price/hour</th>
+              <th scope="col">Type of service</th>
+              <th scope="col">Profile</th>
+            </tr>
+          </thead>
+          <tbody th:if="data" th:each="providers : ${data}">
+            <tr>
+              <td th:text="${providers.name}"></td>
+              <td th:text="${providers.email}"></td>
+              <td th:text="${providers.tel}"></td>
+              <td th:text="${providers.price}"></td>
+              <td th:text="${providers.providerType}"></td>
+              <td>
+                <a
+                  class="btn btn-primary"
+                  th:href="@{/provider/profile/__${providers.id}__}"
+                  role="button"
+                  >Wiev</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

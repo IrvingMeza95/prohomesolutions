@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html
+  lang="es"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link href="/css/login.css" rel="stylesheet" />
+    <link href="/css/generic_styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario"></div>
+
+        <form class="formulario" th:action="@{/logincheck}" method="post">
+          <div class="texto-formulario">
+            <h2>Welcome back</h2>
+            <p>Login with your acount</p>
+          </div>
+          <div class="input">
+            <label for="usuario">Email</label>
+            <input
+              name="email"
+              placeholder="Ingresa tu nombre"
+              type="text"
+              id="usuario"
+            />
+          </div>
+          <div class="input">
+            <label for="contraseña">Password</label>
+            <input
+              name="password"
+              placeholder="Ingresa tu contraseña"
+              type="password"
+              id="contraseña"
+            />
+          </div>
+          <div class="password-olvidada">
+            <a href="#">Did you forgot your password?</a>
+          </div>
+          <div class="input">
+            <input type="submit" value="Login" />
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

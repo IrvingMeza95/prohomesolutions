@@ -1,0 +1,24 @@
+<div th:fragment="notification_list" class="" style="width: 400px;">
+  <div th:each="noti : ${notifications}" class="text-bg-light p-3">
+    <a th:href="${noti.url}" class="card mb-3" style="max-width: 540px">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            th:src="${noti.imageUrl}"
+            class="img-fluid rounded-start"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body text-bg-light p-3">
+            <h5 th:text="${noti.title}" class="card-title"></h5>
+            <p th:text="${noti.details}" class="card-text"></p>
+            <p class="card-text">
+              <small th:text="${noti.date}" class="text-body-secondary"></small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

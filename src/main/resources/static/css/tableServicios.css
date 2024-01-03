@@ -1,0 +1,175 @@
+*{
+  font-family: "quicksands", sans-serif;
+}
+.d-item{
+    height:400px;
+}
+
+.d-img{
+    height:100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+        
+}
+
+.navbar-expand-lg{
+ background-color: #0C356A;
+ 
+}
+
+.nav-item {
+    color: grey;
+    text-decoration: none;
+}
+
+.btn-outline-success{
+    background-color: #FFA33C;
+    color: white;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-expand-lg{
+ background: #0C356A;
+}
+
+.dropdown-menu{
+  background-color: #0C356A;
+}
+
+.dropdown-item{
+  color: white;
+}
+
+.btn-primary{
+    background-color: #FFA33C;
+    border: none;
+}
+
+.row{
+  margin-top: 40px;    
+  margin-right: 20px;  
+  margin-bottom: 15px; 
+  margin-left: 30px;  
+ 
+}
+
+.col-md-7{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  height:40vh;
+}
+.container{
+  margin-left: 40px;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+}
+
+.div-left{
+    background-color: #0C356A;
+    border-radius: 10px;
+    align-items: center;
+    margin-right: 20px;
+    color: #fff; 
+}
+
+h2{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+p{
+  margin-left: 10px;
+}
+.btn-outline-success{
+    background: #FFA33C;
+}
+
+/* mejora navbar */
+ 
+.navbar-nav-scroll .nav-item {
+    list-style: none; 
+    margin: 0;
+  }
+  
+ 
+  .navbar-nav-scroll .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px; 
+  }
+  
+  /* Estilos para el hover de los elementos li */
+  .navbar-nav-scroll .nav-link:hover {
+    background-color: #FFA33C; /* Color de fondo al hacer hover */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+  }  
+
+#button-addon2{
+    margin-right: 10px;
+    background-color: #1d79f1;
+    color: #fff;
+    cursor: pointer;
+}  
+
+#button-addon2:hover{
+    background-color: #FFA33C;
+    transition: .3s;
+}
+
+.form-control{
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* div right*/
+
+.div-right{
+  width: 100%;
+  background-color: #0C356A;
+  border-radius: 10px;
+  color: #fff;
+}
+
+h1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.table{
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #fff;
+    text-align: left;
+  width: 98%;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 8px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table th {
+  background-color: #1d79f1;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}

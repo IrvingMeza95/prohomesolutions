@@ -1,0 +1,282 @@
+
+body {
+    font-family: "Quicksand", sans-serif;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .dropdown-menu{
+    background-color: #0C356A;
+  }
+
+  .dropdown-item{
+    color: white;
+  }
+
+.navbar-expand-lg{
+    background-color: #0C356A;
+   }
+   
+   .nav-item {
+       color: grey;
+       text-decoration: none;
+   }
+   
+   .nav-link{
+       color: white;
+       text-decoration: none;
+   }
+
+   /* mejora navbar */
+ 
+.navbar-nav-scroll .nav-item {
+    list-style: none; 
+    margin: 0;
+  }
+ 
+  .navbar-nav-scroll .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px; 
+  }
+  
+  /* Estilos para el hover de los elementos li */
+  .navbar-nav-scroll .nav-link:hover {
+    background-color: #FFA33C; /* Color de fondo al hacer hover */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+  }  
+
+   .d-item{
+    height:400px;
+}
+
+.d-img{
+    height:100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.image-upload > input
+{
+    display: none;
+}
+.image-upload img
+{
+    width: 30px;
+    cursor: pointer;
+}
+
+   #option-toggle{
+    background-color: #0C356A;
+   }
+
+   /* sign-up form*/
+
+#form{
+    width: 100%;
+    padding: 40px;
+    background-color: #0C356A;
+    border-radius: 20px;
+}
+
+#h3{
+    font-size: 30px;
+    color: #fff;
+}
+
+.form-floating{
+    margin-bottom:10px;    
+}
+
+label{
+    font-size: 1em;
+}
+
+.form-check-label{
+    font-size: 15px;
+    color:#fff;
+}
+
+.form-floating.mt-2 .form-control{
+    height: 8px; 
+}
+
+.custom-label {
+    font-size: 15px; 
+}
+
+.btn.btn-primary.w-100.mt-2.py-2{
+    background-color: #007BFF; 
+    color: #FFFFFF; 
+    border: none; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.btn-primary.w-100.mt-2.py-2:hover {
+    background-color: #FFA33C; 
+    color: #FFFFFF; 
+}
+
+/*VISTA DE VISITANTE*/
+.profile-picture-base {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #3989f2;
+}
+
+/*VISTA DE EDICIÓN*/
+.card-body{
+    background-color: #154c94;
+    color: #fff;
+}
+.images-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 150px;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 135px;
+    height: 135px;
+    border-radius: 60%;
+    border: 3px solid #154c94;
+}
+
+.profile-picture-container:hover {
+    border: 3px solid #3989f2;
+}
+
+.profile-picture-container > input {
+    position: absolute;
+    display: none;
+}
+
+.profile-picture-container > label {
+    position: absolute;
+}
+
+.profile-picture-container > span {
+    position: absolute;
+    top: 25%;
+    left: 108%;
+}
+
+.profile-picture {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.profile-picture:hover {
+    border: 3px solid #3989f2;
+}
+
+.camera-icon {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.profile-picture-container:hover .camera-icon{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.tooltip-box {
+    background-color: #000000;
+    color: #fff;
+    line-height: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.profile-picture-container:hover .tooltip-box{
+    opacity: 1;
+}
+
+.camera-icon, .tooltip-box{
+    transition: opacity 0.2s;
+}
+
+/* Icono de tuerca para modificar perfil de usuarios */
+
+.config-button-container{
+    background-color: #d1d1d1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+}
+.config-button{
+    position: relative;
+    left: 0.215px;
+    bottom: 0.65px;
+    width: 25px;
+    height: 25px;
+}
+
+.config-button:hover{
+    transform: rotate(15deg);
+    cursor: pointer;
+}
+
+.config-button{
+    transition: transform 0.2s;
+}
+
+/* Tablas */
+.table{
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #fff;
+      text-align: left;
+    width: 98%;
+  }
+  
+  .table th,
+  .table td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table th {
+    background-color: #1d79f1;
+    color: white;
+  }
+
+  /* div-left de admim dashboard */
+
+  .div-left{
+    background-color: #0C356A;
+    border-radius: 10px;
+    align-items: center;
+    margin-right: 20px;
+    color: #fff; 
+}
+
+#button-addon2{
+    background-color: #1d79f1;
+    color: #fff;
+    cursor: pointer;
+}  
+
+#button-addon2:hover{
+    background-color: #FFA33C;
+    transition: .3s;
+}

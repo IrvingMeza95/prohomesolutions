@@ -1,0 +1,33 @@
+<div
+  id="option-toggle"
+  th:fragment="options_toggle"
+  th:if="${session.userSession != null}"
+  class="dropdown rounded-5 text-white position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+>
+  <button
+    title="More options"
+    width="1em"
+    height="1em"
+    class="btn p-3 py-2 dropdown-toggle d-flex align-items-center text-white"
+    aria-expanded="false"
+    data-bs-toggle="dropdown"
+  >
+    +
+  </button>
+  <ul
+    th:if="${session.userSession.userType.name == 'PROVIDER'}"
+    class="dropdown-menu dropdown-menu-end shadow"
+    aria-labelledby="bd-theme-text"
+  >
+    <li>
+      <button
+        type="button"
+        class="dropdown-item d-flex align-items-center"
+        data-bs-toggle="modal"
+        data-bs-target="#newPost"
+      >
+        New Post
+      </button>
+    </li>
+  </ul>
+</div>

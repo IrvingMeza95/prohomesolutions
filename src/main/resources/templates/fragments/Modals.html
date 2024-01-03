@@ -1,0 +1,67 @@
+<div th:fragment="modals">
+  <!-- New post -->
+  <div
+    class="modal fade"
+    id="newPost"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New Post</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+          <form
+            class="w-100"
+            action="/post"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div>
+              <textarea
+                required
+                id="description"
+                name="description"
+                rows="3"
+                cols="25"
+                class="form-control"
+                placeholder="What do you want to share?"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+              ></textarea>
+            </div>
+            <div class="image-upload d-flex justify-content-start">
+              <label for="file-input">
+                <img
+                  src="/img/Icono de subir foto.png"
+                  alt="Ipbload photo"
+                  title="Ipbload photo"
+                />
+              </label>
+              <input required name="file" type="file" id="file-input" />
+            </div>
+
+            <div class="modal-footer d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

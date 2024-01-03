@@ -1,0 +1,110 @@
+#chat3 .form-control {
+    margin-left: 10px;
+    border-color: #FFA33C;
+    border-radius: 25px;
+    
+}
+
+#chat3 .form-control:focus {
+    
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.45);
+}
+
+.badge-dot {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-left: 2.9rem;
+    margin-top: -.75rem;
+}
+
+.navbar-expand-lg{
+ background-color: #0C356A;
+ height: 60px;
+}
+
+.nav-item {
+    color: grey;
+    text-decoration: none;
+}
+
+.btn-outline-success{
+    background-color: #FFA33C;
+    color: white;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+ /* mejora navbar */
+ 
+ .navbar-nav-scroll .nav-item {
+    list-style: none; 
+    margin: 0;
+  }
+ 
+  .navbar-nav-scroll .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px; 
+  }
+
+  .dropdown-menu{
+    background-color: #0C356A;
+  }
+
+  .dropdown-item{
+    color: white;
+  }
+  
+  /* Estilos para el hover de los elementos li */
+  .navbar-nav-scroll .nav-link:hover {
+    background-color: #FFA33C; /* Color de fondo al hacer hover */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+  }  
+
+body{
+   background-image: url("/img/pattern_background.svg");
+   background-size: 80%;
+  
+}
+.img-msg{
+    border-radius: 50%;
+}
+.pe-3{
+    overflow: auto;
+}
+.card{
+    box-shadow: 0px 1px 20px rgba(0,0,0,0.45);
+    
+}
+.information{
+    margin-top: 20px;
+    
+}
+
+.mb-md-0{
+    border-right: 1px solid;
+    border-right-color: #FFA33C;
+}
+
+.card{
+    height: 80vh;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+

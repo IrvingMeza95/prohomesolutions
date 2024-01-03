@@ -1,0 +1,87 @@
+<div
+  th:fragment="post_comment_box"
+  th:each="comment : ${post.comments}"
+  class="rounded-2 border border-black mt-2"
+>
+  <div th:if="${session.userSession.role.name == 'USER'}">
+    <div th:if="${comment.visible == true}">
+      <div class="d-flex align-items-center p-2 gap-2">
+        <img
+          th:if="${comment.customer.profilePicture != null}"
+          th:src="@{/file/image/__${comment.customer.profilePicture.id}__}"
+          class="rounded-5"
+          style="width: 40px; height: 40px"
+        />
+        <img
+          th:if="${comment.customer.profilePicture == null}"
+          src="/img/PP vacia.png"
+          class="rounded-5"
+          style="width: 40px; height: 40px"
+        />
+        <a
+          th:href="@{/customer/profile/__${comment.customer.id}__}"
+          th:text="${comment.customer.name}"
+        ></a>
+      </div>
+      <div
+        class="d-flex justify-content-start align-items-center border border-black"
+      >
+        <p th:text="${comment.description}" class="m-3"></p>
+      </div>
+      <p class="card-text text-end m-1">
+        <small
+          th:text="'Published on ' + ${comment.date}"
+          class="text-body-secondary"
+        ></small>
+      </p>
+    </div>
+  </div>
+
+  <div th:if="${session.userSession.role.name == 'ADMIN'}">
+    <div class="d-flex justify-content-between align-items-center p-2">
+      <div class="d-flex align-items-center p-2 gap-2">
+        <img
+          th:if="${comment.customer.profilePicture != null}"
+          th:src="@{/file/image/__${comment.customer.profilePicture.id}__}"
+          class="rounded-5"
+          style="width: 40px; height: 40px"
+        />
+        <img
+          th:if="${comment.customer.profilePicture == null}"
+          src="/img/PP vacia.png"
+          class="rounded-5"
+          style="width: 40px; height: 40px"
+        />
+        <a
+          th:href="@{/customer/profile/__${comment.customer.id}__}"
+          th:text="${comment.customer.name}"
+        ></a>
+      </div>
+      <div th:if="${session.userSession.role.name == 'ADMIN'}">
+        <a
+          th:href="@{/post/comment/change-visiblity/__${post.id}__/__${comment.id}__}"
+          th:if="${comment.visible == true}"
+          class="p-2"
+          ><img style="width: 25px; height: 25px" src="/img/Desbloquedo.png"
+        /></a>
+        <a
+          th:href="@{/post/comment/change-visiblity/__${post.id}__/__${comment.id}__}"
+          th:if="${comment.visible == false}"
+          class="p-2"
+          ><img style="width: 25px; height: 25px" src="/img/Bloqueado.png"
+        /></a>
+      </div>
+    </div>
+    <div
+      class="d-flex justify-content-start align-items-center border border-black"
+    >
+      <p th:text="${comment.description}" class="m-3"></p>
+    </div>
+    <p class="card-text text-end m-1">
+      <small
+        th:text="'Published on ' + ${comment.date}"
+        class="text-body-secondary"
+      ></small>
+    </p>
+  </div>
+</div>

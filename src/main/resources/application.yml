@@ -1,0 +1,33 @@
+spring:
+
+  #Configuraci�n MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/prohousesolutionsDB?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #Configuraci�n Creaci�n de tablas (Hibernate)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  #Que thymeleaf no guarde datos en cache
+  thymeleaf:
+    cache: true
+  main:
+    banner-mode: off
+
+  #Enable muljtipart files and configs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+
+

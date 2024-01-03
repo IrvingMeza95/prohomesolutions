@@ -1,0 +1,47 @@
+<div th:fragment="customer_orders_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Provider</th>
+        <th scope="col">Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Status</th>
+        <th th:if="${session.userSession.id == id}" scope="col">Chat</th>
+        <th th:if="${session.userSession.id == id}" scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody th:each="job : ${jobs}">
+      <tr>
+        <td th:text="${job.date}"></td>
+        <td>
+          <a
+            th:href="@{/provider/profile/__${job.prov.id}__}"
+            th:text="${job.prov.name}"
+          ></a>
+        </td>
+        <td th:text="${job.prov.providerType.job}"></td>
+        <td th:text="${'$' + job.totalPrice}"></td>
+        <td th:text="${job.jobStatus.tag}"></td>
+        <td th:if="${session.userSession.id == id}">
+          <a th:href="@{/job/chat-messages/__${job.id}__}" class="btn">
+            <img
+              title="Messages"
+              style="width: 35px; height: 30px"
+              src="/img/Icono de chat.png"
+            />
+          </a>
+        </td>
+        <td th:if="${session.userSession.id == id}">
+          <a th:href="@{/job/delete/__${job.id}__}" class="btn">
+            <img
+              title="Delete"
+              src="/img/Icono de borrar.png"
+              style="width: 25px; height: 25px"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
